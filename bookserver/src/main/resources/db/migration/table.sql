@@ -1,0 +1,14 @@
+CREATE TABLE `book` (
+  `book_id` VARCHAR(40) NOT NULL,
+  `book_name` VARCHAR(255) DEFAULT NULL,
+  `author_name` VARCHAR(40) DEFAULT NULL,
+  `book_desc` VARCHAR(1000) DEFAULT NULL,
+  `publish_time` DATETIME DEFAULT NULL,
+  `status` VARCHAR(40) DEFAULT NULL,
+  `is_deleted` TINYINT DEFAULT 0,
+  `create_by` VARCHAR(40) DEFAULT NULL,
+  `create_time` DATETIME DEFAULT NULL,
+  `update_by` VARCHAR(40) DEFAULT NULL,
+  `update_time` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`book_id`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
