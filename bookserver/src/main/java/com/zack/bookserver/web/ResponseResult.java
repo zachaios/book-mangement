@@ -1,14 +1,14 @@
-package com.zack.bookserver.config;
+package com.zack.bookserver.web;
 
 import lombok.Data;
 
 @Data
-public class ResponseErrorResult<T> {
+public class ResponseResult<T> {
     private int code;
     private String message;
     private T data;
 
-    public ResponseErrorResult(int code, String message, T data) {
+    public ResponseResult(int code, String message, T data) {
         this.code = code;
         this.message = message;
         this.data = data;

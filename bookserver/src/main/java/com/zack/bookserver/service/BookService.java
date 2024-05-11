@@ -6,6 +6,8 @@ import com.zack.bookserver.entity.po.Book;
 import com.zack.bookserver.repository.BookRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +24,12 @@ public class BookService {
 
     public List<Book> findAll(){
         return bookRepository.findAll(Sort.by("createTime").descending());
+    }
+
+
+    public Page<Book> findAllPage(PageRequest pageable){
+        pageable.withSort(Sort.by("createTime").descending());
+        return bookRepository.findAll(pageable);
     }
 
     public Optional<Book> findById(String bookId) {

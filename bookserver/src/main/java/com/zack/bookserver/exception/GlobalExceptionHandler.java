@@ -1,9 +1,9 @@
-package com.zack.bookserver.config;
+package com.zack.bookserver.exception;
 
+import com.zack.bookserver.web.ResponseResult;
+import com.zack.bookserver.web.ResponseUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @Slf4j
 //@RestControllerAdvice
@@ -14,7 +14,7 @@ public class GlobalExceptionHandler  {
      * 基础异常
      */
     @ExceptionHandler(Exception.class)
-    public ResponseErrorResult baseException(Exception e) {
+    public ResponseResult baseException(Exception e) {
         log.warn(e.getMessage(), e);
         return ResponseUtil.error(500,e.getMessage());
     }
